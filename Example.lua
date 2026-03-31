@@ -5,20 +5,20 @@ local Window = SpriteLib:CreateWindow({
     ToggleKey = Enum.KeyCode.Q
 })
 
-local 1c = Window:CreateCategory({
+local c1 = Window:CreateCategory({
     CategoryName = "1"
 })
 
-1c:CreateButton({
+c1:CreateButton({
     ButtonName = "1",
     Callback = function() print("1") end
 })
 
-local 2c = Window:CreateCategory({
+local c2 = Window:CreateCategory({
     CategoryName = "2"
 })
 
-2c:CreateButton({
+c2:CreateButton({
     ButtonName = "2",
     Callback = function() print("2") end
 })
