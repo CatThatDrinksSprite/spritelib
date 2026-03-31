@@ -2,6 +2,7 @@
 local Workspace = game:GetService("Workspace")
 local RunService = game:GetService("RunService")
 local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
 
 -- // Variables
 local LocalPlayer = Players.LocalPlayer
@@ -204,6 +205,20 @@ do
             return CategoryFunctions
         end
 
+        UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+            if gameProcessedEvent then return end
+            if input.KeyCode == ToggleKey then 
+                SpriteLibParts.Part.Size = Vector3.new(7, 4, 0)
+            end
+        end)
+
+        UserInputService.InputEnded:Connect(function(input, gameProcessedEvent)
+            if gameProcessedEvent then return end
+            if input.KeyCode == ToggleKey then 
+                SpriteLibParts.Part.Size = Vector3.new(0, 0, 0)
+            end
+        end)
+        
         RunService.RenderStepped:Connect(function()
             SpriteLibParts.Part.CFrame = Workspace.CurrentCamera.CFrame * CFrame.new(0, 0, -5) * CFrame.Angles(0, math.rad((Mouse.X-Mouse.ViewSizeX/2) * 0.05), 0) * CFrame.Angles(math.rad((Mouse.Y-Mouse.ViewSizeY/2) * 0.05), 0, 0)
         end)
