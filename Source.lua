@@ -212,15 +212,4 @@ do
     end
 end
 
--- return SpriteLib
-
-local Window = SpriteLib:CreateWindow()
-
-local Category = Window:CreateCategory()
-
-Category:CreateButton({
-    ButtonName = "Print Hi!",
-    Callback = function()
-        game.Players.LocalPlayer.Character.Humanoid.Health = 0
-    end
-})
+return SpriteLib
